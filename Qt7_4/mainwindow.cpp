@@ -25,11 +25,11 @@ MainWindow::MainWindow(QWidget *parent)
     ui->pBar_clicks->setValue(0);
 
     ui->pBar_clicks->setStyleSheet("QProgressBar {"
-                              "    text-align: center;"
-                              "}"
-                              "     QProgressBar::chunk {"
-                              "    background-color: skyblue;"
-                               "}");
+                                   "    text-align: center;"
+                                   "}"
+                                   "     QProgressBar::chunk {"
+                                   "    background-color: skyblue;"
+                                   "}");
     ui->gb_main->setTitle("");
 
 }
@@ -42,16 +42,13 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_pb_click_clicked(bool checked)
 {
-    if (checked)
+    if (ui->pBar_clicks->value() < ui->pBar_clicks->maximum())
     {
-        if (ui->pBar_clicks->value() < ui->pBar_clicks->maximum())
-        {
-            ui->pBar_clicks->setValue(ui->pBar_clicks->value() + 1);
-        }
-        else
-        {
-            ui->pBar_clicks->setValue(0);
-        }
+        ui->pBar_clicks->setValue(ui->pBar_clicks->value() + 1);
+    }
+    else
+    {
+        ui->pBar_clicks->setValue(0);
     }
 
 }
